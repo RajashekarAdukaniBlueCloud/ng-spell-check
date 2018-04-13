@@ -42,11 +42,7 @@ export class SpellCheckComponent implements OnInit {
   }
 
   checkText(value){
-    let params = {
-      text: value,
-      language: 'auto'
-    };
-    this.spellCheckService.checkWithLanguageTool(params).subscribe((res)=>{
+    this.spellCheckService.checkWithLanguageTool(value).subscribe((res)=>{
     })
   }
 
