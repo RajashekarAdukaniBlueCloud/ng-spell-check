@@ -14,18 +14,44 @@
         top: 0;
         z-index: 1;
         border: 1px solid transparent;
-        overflow: auto;
+        overflow: visible;
         transition: -webkit-transform 1s;
         transition: transform 1s;
         transition: transform 1s, -webkit-transform 1s;
     }
     .b-text-correction{
         padding: 2px;
-        mark{
-            cursor: pointer;
+        .s-word-container{
+            position: relative;
+            mark{
+                cursor: pointer;
+            }
+            span.correct-word{
+                color: transparent;
+            }
+            .b-correct-word-list{
+                position: absolute;
+                top: 20px;
+                left: 0;
+                cursor: pointer;
+                background: #FFFFFF;
+                border: solid 1px #cccccc;
+                font-size: 0.8rem;
+                min-width: 100px;
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    li{
+                        padding: 5px 2px;
+                        &:hover{
+                            background: #EEEEEE;
+                        }
+                    }
+                }
+            }
         }
+        
     }
-    .b-correct-word-list{
-        top: 10px;
-    }
+    
 }

@@ -10,19 +10,24 @@
   <div class="b-back-drop">
       <div class="b-text-correction" 
       >
-        <span *ngFor="let keyword of corrections">
-          <mark *ngIf="needToCorrect(keyword)" [innerHTML]="keyword" (click)="showReplacements(keyword)"></mark>
-          <span *ngIf="!needToCorrect(keyword)" [innerHTML]="keyword"></span>
+        <span class="s-word-container" *ngFor="let keyword of corrections">
+          <mark *ngIf="needToCorrect(keyword) >= 0" 
+            [innerHTML]="keyword" 
+            (blur)="hideReplacements()"
+            (click)="showReplacements($event, keyword)">
+          </mark>
+          <span class="correct-word" *ngIf="needToCorrect(keyword) < 0" [innerHTML]="keyword"></span>
+          <div *ngIf="showPopover && selectedWrongWord == keyword" class="b-correct-word-list">
+              <ul>
+                <li
+                *ngFor="let correctWord of correctWordList" 
+                [innerHTML]="correctWord.value"
+                (click)="replaceWord(correctWord.value)">
+                </li>
+              </ul>
+            </div>
         </span>
-        <div *ngIf="showPopover" class="b-correct-word-list">
-            <ul>
-              <li
-              *ngFor="let correctWord of correctWordList" 
-              [innerHTML]="correctWord.value"
-              (click)="replaceWord(correctWord.value)">
-              </li>
-            </ul>
-          </div>
+        
       </div>
     </div>
 </div>

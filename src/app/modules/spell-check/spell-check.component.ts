@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable }  from 'rxjs/Observable';
 import { SpellCheckService } from './spell-check.service';
@@ -11,7 +11,13 @@ import 'rxjs/add/observable/fromEvent';
   templateUrl: './spell-check.component.html',
   styleUrls: ['./spell-check.component.scss']
 })
+
 export class SpellCheckComponent implements OnInit {
+  @HostListener('document:click', ['$event']) clickedOutside($event){
+    // here you can hide your menu
+    this.showPopover = false;
+  }
+
   public  textData = ""
           showPopover = false
           selectedWrongWord
@@ -75,20 +81,29 @@ export class SpellCheckComponent implements OnInit {
     this.subscribers.push(spellCheckSub);
   }
   
-  showReplacements(word){
+  showReplacements($event, word){
     this.showPopover = true;
     this.selectedWrongWord = word;
     this.correctWordList = this.wordsToBeCorrected[word];
+    $event.preventDefault();
+    $event.stopPropagation(); 
   }
-
+  hideReplacements(){
+    console.log('hide');
+    this.showPopover = false;
+  }
   needToCorrect(word){
+    // console.log(word);
+    // Object.keys(this.wordsToBeCorrected).indexOf(word)
     return Object.keys(this.wordsToBeCorrected).indexOf(word);
   }
 
   replaceWord(word){
+    console.log(this.textData);
     this.textData = this.textData.replace(this.selectedWrongWord, word);    
     const indexOfWord = this.corrections.indexOf(this.selectedWrongWord);
-    this.corrections.splice(indexOfWord, 1);
+    this.corrections = [];
+    // this.corrections.splice(indexOfWord, 1);
     this.checkText(this.textData);
   }
 
