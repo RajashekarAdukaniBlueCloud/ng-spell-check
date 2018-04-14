@@ -1,27 +1,26 @@
-# SpellCheckLibrary
+Angular Spell Check Library
+=========
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This spell checker will use api to check for spelling errors and provide suggestions to correct your spell mistaking. 
 
-## Development server
+### Install
+`npm i ng-spell-check`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Usage
+In you `app.module.ts` import it using `@NgModule` decorator.
 
-## Code scaffolding
+    @NgModule({
+        imports: [
+            ...,
+            SpellCheckModule,
+            ...
+        ]
+    })
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Now you can use spell check in your html code.
 
-## Build
+    <ng-spell-check></ng-spell-check>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Note
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This is a work in progress. There are a lot of items to do right now. It basically provides features to only correct text you entered in the field. 
