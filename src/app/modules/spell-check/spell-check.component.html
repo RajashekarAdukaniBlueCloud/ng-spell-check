@@ -1,7 +1,28 @@
-<textarea 
-  class="b-text-area"
-  [formControl]="textAreaCtrl"
-  [value]="content"
->
-
-</textarea>
+<div class="ng-spell-check">
+  <textarea 
+    class="b-text-area"
+    [formControl]="textAreaCtrl"
+    ([ngModel])="textData"
+    [value] = "textData | sanitizeHTML "
+  >
+  
+  </textarea>
+  <div class="b-back-drop">
+      <div class="b-text-correction" 
+      >
+        <span *ngFor="let keyword of corrections">
+          <mark *ngIf="needToCorrect(keyword)" [innerHTML]="keyword" (click)="showReplacements(keyword)"></mark>
+          <span *ngIf="!needToCorrect(keyword)" [innerHTML]="keyword"></span>
+        </span>
+        <div *ngIf="showPopover" class="b-correct-word-list">
+            <ul>
+              <li
+              *ngFor="let correctWord of correctWordList" 
+              [innerHTML]="correctWord.value"
+              (click)="replaceWord(correctWord.value)">
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+</div>
