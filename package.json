@@ -1,6 +1,6 @@
 {
   "name": "ng-spell-check",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,6 +11,19 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EddieLi/ng-spell-check"
+  },
+  "keywords": [
+    "spellchecker",
+    "spell",
+    "angular",
+    "ng"
+  ],
+  "author": "Eddie Li",
+  "bugs": "https://github.com/EddieLi/ng-spell-check/issues",
+  "homepage": "https://eddieli.me",
   "private": false,
   "dependencies": {
     "@angular/animations": "^5.2.0",
