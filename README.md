@@ -1,4 +1,4 @@
-Angular Spell Check Library
+Angular Spell Check Library <img src="https://travis-ci.org/EddieLi/ng-spell-check.svg?branch=master" />
 =========
 
 This spell checker will use api to check for spelling errors and provide suggestions to correct your spell mistaking. 
