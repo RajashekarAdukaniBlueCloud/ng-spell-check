@@ -46,4 +46,3 @@ Thumbs.db
 
 .ng_pkg_build
 dist.*
-package-lock.json
