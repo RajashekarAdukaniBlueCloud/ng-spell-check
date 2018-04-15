@@ -89,21 +89,16 @@ export class SpellCheckComponent implements OnInit {
     $event.stopPropagation(); 
   }
   hideReplacements(){
-    console.log('hide');
     this.showPopover = false;
   }
   needToCorrect(word){
-    // console.log(word);
-    // Object.keys(this.wordsToBeCorrected).indexOf(word)
     return Object.keys(this.wordsToBeCorrected).indexOf(word);
   }
 
   replaceWord(word){
-    console.log(this.textData);
     this.textData = this.textData.replace(this.selectedWrongWord, word);    
     const indexOfWord = this.corrections.indexOf(this.selectedWrongWord);
     this.corrections = [];
-    // this.corrections.splice(indexOfWord, 1);
     this.checkText(this.textData);
   }
 
