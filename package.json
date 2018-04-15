@@ -1,6 +1,6 @@
 {
   "name": "ng-spell-check",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
